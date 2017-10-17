@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<robot name="rbkairos" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- ***************** -->
+    <!-- Imported elements -->
+    <!-- ***************** -->
+    
+    <!-- First we import all posible elements defined in the urdf.xacro files. All these elements are defined as macro:xacros -->
+	<xacro:arg name="prefix" default="rbkairos_a_"/>
+	<xacro:arg name="ros_planar_move_plugin" default="false"/>
+	<xacro:property name="arm_offset_x" value="0.2383" />
+	<xacro:property name="arm_offset_y" value="0.0" />
+	<xacro:property name="arm_offset_z" value="0.436" />
+
+	
+    <!-- Import summit XL base elements -->
+    <xacro:include filename="$(find rbkairos_description)/urdf/bases/rbkairos_base.urdf.xacro" />
+    <xacro:include filename="$(find rbkairos_description)/urdf/structures/ur_arm_base.urdf.xacro" />
+
+
+    <!-- Import UR5 arm -->
+    <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
+
+    <xacro:rbkairos_base prefix="$(arg prefix)" publish_bf="true" hq="true"/>
+
+    <xacro:ur5_robot prefix="$(arg prefix)arm_" joint_limited="true">
+    </xacro:ur5_robot>
+
+    <joint name="$(arg prefix)arm_base_joint" type="fixed">
+          <origin xyz="${arm_offset_x} ${arm_offset_y} ${arm_offset_z}" rpy="0 0 0" />
+          <parent link="$(arg prefix)base_link" />
+          <child link="$(arg prefix)arm_base_link" />
+    </joint>
+    
+    <xacro:ur_arm_base prefix="$(arg prefix)arm_stand" parent="$(arg prefix)base_link">
+		  <origin xyz="${arm_offset_x} 0 ${arm_offset_z - 0.158}" rpy="0 0 0" />
+	</xacro:ur_arm_base>
+    
+
+   <xacro:ros_control/>
+ 
+   <xacro:if value="$(arg ros_planar_move_plugin)">
+       <xacro:omni_steering prefix="$(arg prefix)" publish_tf="false"/>
+   </xacro:if>
+</robot>
+

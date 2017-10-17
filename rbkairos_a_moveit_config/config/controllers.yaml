@@ -1,0 +1,12 @@
+controller_list:
+  - name: arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - rbkairos_a_arm_shoulder_pan_joint
+      - rbkairos_a_arm_shoulder_lift_joint
+      - rbkairos_a_arm_elbow_joint
+      - rbkairos_a_arm_wrist_1_joint
+      - rbkairos_a_arm_wrist_2_joint
+      - rbkairos_a_arm_wrist_3_joint

@@ -1,0 +1,4 @@
+<launch>
+	<param name="octomap_frame" type="string" value="rbkairos_a_base_link"/>
+	<rosparam command="load" file="$(find rbkairos_a_moveit_config)/config/sensors.yaml" />
+</launch>
