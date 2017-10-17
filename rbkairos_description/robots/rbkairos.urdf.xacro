@@ -27,7 +27,7 @@
     </xacro:ur5_robot>
 
     <joint name="$(arg prefix)arm_base_joint" type="fixed">
-          <origin xyz="${arm_offset_x} ${arm_offset_y} ${arm_offset_z}" rpy="0 0 0" />
+          <origin xyz="${arm_offset_x} ${arm_offset_y} ${arm_offset_z}" rpy="0 0 ${PI}" />
           <parent link="$(arg prefix)base_link" />
           <child link="$(arg prefix)arm_base_link" />
     </joint>
