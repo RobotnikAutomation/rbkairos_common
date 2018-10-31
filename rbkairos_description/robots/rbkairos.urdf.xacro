@@ -114,10 +114,10 @@
 		</xacro:structure_rear_velodyne-->
     
 		<!-- SENSORS -->
-		<xacro:sensor_sick_s300 prefix="$(arg prefix)front_laser" parent="$(arg prefix)base_link">
+		<xacro:sensor_sick_s300 prefix="$(arg prefix)front_laser" parent="$(arg prefix)base_link" prefix_topic="front_laser">
 			<origin xyz="0.2865 -0.20894 0.2973" rpy="0 ${-PI} ${3/4*PI}" />
 		</xacro:sensor_sick_s300>
-		<xacro:sensor_sick_s300 prefix="$(arg prefix)rear_laser" parent="$(arg prefix)base_link">
+		<xacro:sensor_sick_s300 prefix="$(arg prefix)rear_laser" parent="$(arg prefix)base_link" prefix_topic="rear_laser">
 			<origin xyz="-0.2865 0.20894 0.2973" rpy="0 ${-PI} ${-1/4*PI}" />
 		</xacro:sensor_sick_s300>
 
