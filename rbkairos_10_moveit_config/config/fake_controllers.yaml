@@ -1,0 +1,17 @@
+controller_list:
+  - name: fake_end_effector_controller
+    joints:
+      - rbkairos_ur10_shoulder_pan_joint
+      - rbkairos_ur10_shoulder_lift_joint
+      - rbkairos_ur10_elbow_joint
+      - rbkairos_ur10_wrist_1_joint
+      - rbkairos_ur10_wrist_2_joint
+      - rbkairos_ur10_wrist_3_joint
+  - name: fake_manipulator_controller
+    joints:
+      - rbkairos_ur10_shoulder_pan_joint
+      - rbkairos_ur10_shoulder_lift_joint
+      - rbkairos_ur10_elbow_joint
+      - rbkairos_ur10_wrist_1_joint
+      - rbkairos_ur10_wrist_2_joint
+      - rbkairos_ur10_wrist_3_joint
