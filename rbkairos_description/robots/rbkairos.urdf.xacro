@@ -68,6 +68,7 @@
 
 	<xacro:arg name="prefix" default="rbkairos_"/>
 	<xacro:arg name="ros_planar_move_plugin" default="false"/>
+	<xacro:arg name="has_arm" default="true"/>
 
 		
     <xacro:macro name="rbkairos" params="prefix publish_bf hq">
@@ -168,16 +169,19 @@
 		</xacro:ur5_robot-->
 		
 		<!-- UR-10 ARM -->
-		<xacro:ur10_robot prefix="$(arg prefix)ur10_" joint_limited="true"
+		<xacro:if value="$(arg has_arm)">
+			<xacro:ur10_robot prefix="$(arg prefix)ur10_" joint_limited="true"
 			shoulder_pan_lower_limit="${-pi}" shoulder_pan_upper_limit="${pi}"
 			wrist_3_lower_limit="${-pi}" wrist_3_upper_limit="${pi}">
-		</xacro:ur10_robot>
+			</xacro:ur10_robot>
+			
+			<joint name="$(arg prefix)ur10_arm_base_joint" type="fixed">
+				<origin xyz="0.0 0 0.38212" rpy="0 0 ${PI*0}"/>
+				<parent link="$(arg prefix)base_link" />
+				<child link="$(arg prefix)ur10_base_link" />
+			</joint>
+		</xacro:if>
 		
-		<joint name="$(arg prefix)ur10_arm_base_joint" type="fixed">
-		  <origin xyz="0.0 0 0.38212" rpy="0 0 ${PI*0}"/>
-		  <parent link="$(arg prefix)base_link" />
-		  <child link="$(arg prefix)ur10_base_link" />
-		</joint>
 		
 		<!-- Schunk WSG-50 -->
 		<!--xacro:wsg_50_xacro name="$(arg prefix)wsg50" parent="$(arg prefix)ur5_tool0" finger_length="0.023" finger_tip="0">
