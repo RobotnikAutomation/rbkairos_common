@@ -22,6 +22,10 @@
 
   <arg name="capabilities" default=""/>
   <arg name="disable_capabilities" default=""/>
+
+  <arg name="sim" default="false"/>
+
+
   <!-- load these non-default MoveGroup capabilities (space seperated) -->
   <!--
   <arg name="capabilities" value="
@@ -48,6 +52,8 @@
     <arg name="moveit_manage_controllers" value="true" />
     <arg name="moveit_controller_manager" value="rbkairos" unless="$(arg fake_execution)"/>
     <arg name="moveit_controller_manager" value="fake" if="$(arg fake_execution)"/>
+    <arg name="controllers_config_file" value="controllers.yaml" unless="$(arg sim)"/>
+    <arg name="controllers_config_file" value="controllers_simulation.yaml" if="$(arg sim)"/>
   </include>
 
   <!-- Sensors Functionality -->

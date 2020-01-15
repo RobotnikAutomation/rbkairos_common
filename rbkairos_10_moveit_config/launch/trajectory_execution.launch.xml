@@ -15,6 +15,11 @@
 
   <!-- Load the robot specific controller manager; this sets the moveit_controller_manager ROS parameter -->
   <arg name="moveit_controller_manager" default="rbkairos" />
-  <include file="$(find rbkairos_10_moveit_config)/launch/$(arg moveit_controller_manager)_moveit_controller_manager.launch.xml" />
+
+  <arg name="controllers_config_file" default="controllers.yaml"/>
+
+  <include file="$(find rbkairos_10_moveit_config)/launch/$(arg moveit_controller_manager)_moveit_controller_manager.launch.xml">
+    <arg name="controllers_config_file" value="$(arg controllers_config_file)"/>
+  </include>
 
 </launch>
