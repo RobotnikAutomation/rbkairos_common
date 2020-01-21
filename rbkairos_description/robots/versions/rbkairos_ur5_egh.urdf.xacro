@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<robot name="rbkairos" xmlns:xacro="http://wiki.ros.org/xacro">
+
+
+	<!-- ***************** -->
+	<!-- Imported elements -->
+	<!-- ***************** -->
+
+	<!-- First we import all posible elements defined in the urdf.xacro files. All these elements are defined as macro:xacros -->
+
+	<!-- Import summit XL base elements -->
+	<xacro:include filename="$(find rbkairos_description)/urdf/bases/rbkairos_base.urdf.xacro" />
+
+	<!-- Include UR-5 ARM -->
+	<xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
+
+    <!-- Include EGH TODO -->
+    
+
+    <!-- Import all available sensors -->
+  	<xacro:include filename="$(find robotnik_sensors)/urdf/all_sensors.urdf.xacro" />
+
+
+	<!-- Flag to select the high or low quality model -->
+	<xacro:property name="hq" value="true" />
+
+	<xacro:arg name="prefix" default="robot_"/>
+	<xacro:arg name="ros_planar_move_plugin" default="false"/>
+	<xacro:arg name="has_arm" default="true"/>
+
+
+  <xacro:macro name="rbkairos" params="prefix publish_bf hq">
+
+		<!-- *************** -->
+		<!-- Robots Elements -->
+		<!-- *************** -->
+
+		<!-- Here we create the robot elements using the xacro:macros imported at the beggining of this file -->
+
+		<!-- RBKAIROS base -->
+		<xacro:rbkairos_base prefix="$(arg prefix)" publish_bf="true" hq="true"/>
+
+
+		<!-- UR-5 ARM -->
+		<xacro:if value="$(arg has_arm)">
+            <xacro:ur5_robot prefix="$(arg prefix)arm_" joint_limited="true"
+                shoulder_pan_lower_limit="${-pi}" shoulder_pan_upper_limit="${pi}"
+                wrist_3_lower_limit="${-pi}" wrist_3_upper_limit="${pi}">
+            </xacro:ur5_robot>
+        
+            <joint name="$(arg prefix)arm_base_joint" type="fixed">
+				<origin xyz="0.0 0 0.38212" rpy="0 0 ${PI*0}"/>
+				<parent link="$(arg prefix)base_link" />
+				<child link="$(arg prefix)arm_base_link" />
+			</joint>
+		</xacro:if>
+
+
+		<!-- Schunk EGH TODO -->
+		<!--xacro:egh_xacro name="$(arg prefix)egh" parent="$(arg prefix)arm_tool0" finger_length="0.023" finger_tip="0">
+			<origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+		</xacro:egh_xacro-->
+
+        <!-- Intel Realsense -->
+        <xacro:sensor_r430 prefix="$(arg prefix)arm_rgbd_camera" parent="$(arg prefix)arm_tool0" prefix_topic="front_rgbd_camera">
+  			<origin xyz="0.0 -0.05 -0.01" rpy="${pi/2} ${-pi/2} 0"/>
+  		</xacro:sensor_r430>
+
+	</xacro:macro>
+
+   <!-- Gazebo ros control pluggins -->
+   <xacro:ros_control/>
+   <xacro:if value="$(arg ros_planar_move_plugin)">
+	   <xacro:omni_steering prefix="$(arg prefix)" publish_tf="false"/>
+   </xacro:if>
+
+   <xacro:rbkairos prefix="$(arg prefix)" publish_bf="true" hq="true"/>
+
+
+
+</robot>
