@@ -82,8 +82,8 @@
 		</xacro:egh_gripper>
 
         <!-- Intel Realsense -->
-    <xacro:sensor_r430 prefix="$(arg prefix)arm_rgbd_camera" parent="$(arg prefix)arm_tool0" prefix_topic="front_rgbd_camera">
-      <origin xyz="0.0 -0.05 -0.01" rpy="${pi/2} ${-pi/2} 0"/>
+    <xacro:sensor_r430 prefix="$(arg prefix)wrist_rgbd" parent="$(arg prefix)arm_tool0" prefix_topic="wrist_rgbd">
+      <origin xyz="-0.075 0.0 0.065" rpy="0 ${-pi/2} 0"/>
     </xacro:sensor_r430>
 
 	</xacro:macro>
