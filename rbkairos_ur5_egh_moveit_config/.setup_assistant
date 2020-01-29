@@ -8,4 +8,4 @@ moveit_setup_assistant_config:
   CONFIG:
     author_name: Jose Gómez
     author_email: jgomez@robotnik.es
-    generated_timestamp: 1579867218
+    generated_timestamp: 1580293685
