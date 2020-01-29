@@ -33,7 +33,7 @@
   <xacro:property name="arm_position_z" value="0.38212"/>
   <xacro:property name="arm_orientation_r" value="0"/>
   <xacro:property name="arm_orientation_p" value="0"/>
-  <xacro:property name="arm_orientation_y" value="${-3*pi/4}"/>
+  <xacro:property name="arm_orientation_y" value="${3*pi/4}"/>
   
 
   <xacro:macro name="rbkairos" params="prefix publish_bf hq load_kinematics_file">
