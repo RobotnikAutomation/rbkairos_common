@@ -226,4 +226,6 @@
     <disable_collisions link1="robot_front_right_wheel_link" link2="robot_imu_link" reason="Never" />
     <disable_collisions link1="robot_front_right_wheel_link" link2="robot_rear_laser_base_link" reason="Never" />
     <disable_collisions link1="robot_imu_link" link2="robot_rear_laser_base_link" reason="Never" />
+    <disable_collisions link1="robot_egh_gripper_left_finger" link2="robot_egh_gripper_right_finger" reason="Adjacent" />
+
 </robot>
