@@ -10,4 +10,3 @@ controller_list:
   - name: fake_egh_gripper_controller
     joints:
       - robot_egh_gripper_finger_left_joint
-      - robot_egh_gripper_finger_right_joint

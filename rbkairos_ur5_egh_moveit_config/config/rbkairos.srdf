@@ -27,11 +27,11 @@
         <joint name="robot_arm_wrist_3_joint" value="1.4499" />
     </group_state>
     <group_state name="close" group="egh_gripper">
-        <joint name="robot_egh_gripper_finger_left_joint" value="-0.02" />
-        <joint name="robot_egh_gripper_finger_right_joint" value="0.02" />
+        <joint name="robot_egh_gripper_finger_left_joint" value="0.00" />
+        <joint name="robot_egh_gripper_finger_right_joint" value="0.00" />
     </group_state>
     <group_state name="open" group="egh_gripper">
-        <joint name="robot_egh_gripper_finger_left_joint" value="-0.048" />
+        <joint name="robot_egh_gripper_finger_left_joint" value="0.048" />
         <joint name="robot_egh_gripper_finger_right_joint" value="0.048" />
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
