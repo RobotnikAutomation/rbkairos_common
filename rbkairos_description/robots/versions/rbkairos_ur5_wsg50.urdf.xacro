@@ -9,7 +9,7 @@
 	<!-- First we import all posible elements defined in the urdf.xacro files. All these elements are defined as macro:xacros -->
 
 	<!-- Import summit XL base elements -->
-	<xacro:include filename="$(find rbkairos_description)/robots/versions/rbkairos_ur5_wsg50.urdf.xacro"/>
+	<xacro:include filename="$(find rbkairos_description)/robots/versions/rbkairos_ur5_wsg50_base.urdf.xacro"/>
 
 	<!-- Include UR-5 ARM -->
 	<xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro"/>
