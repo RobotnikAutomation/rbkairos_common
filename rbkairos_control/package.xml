@@ -7,7 +7,7 @@
   </description>
 
   <author email="rguzman@robotnik.es">Roberto Guzmán</author>
-  
+
   <maintainer email="asoriano@robotnik.es">Angel Soriano</maintainer>
   <maintainer email="avillena@robotnik.es">Álvaro Villena</maintainer>
   <maintainer email="dredo@robotnik.es">David Redó</maintainer>
@@ -20,14 +20,16 @@
   <url type="repository">https://github.com/RobotnikAutomation/rbkairos_sim.git</url>
   <url type="bugtracker">https://github.com/RobotnikAutomation/rbkairos_sim/issues</url>
   <buildtool_depend>catkin</buildtool_depend>
-  
- 
+
+
   <build_depend>joint_state_controller</build_depend>
   <build_depend>velocity_controllers</build_depend>
   <build_depend>diff_drive_controller</build_depend>
+  <build_depend>gripper_action_controller</build_depend>
 
-  <run_depend>joint_state_controller</run_depend>  
-  <run_depend>velocity_controllers</run_depend>  
-  <run_depend>diff_drive_controller</run_depend>  
+  <run_depend>joint_state_controller</run_depend>
+  <run_depend>velocity_controllers</run_depend>
+  <run_depend>diff_drive_controller</run_depend>
+  <run_depend>gripper_action_controller</run_depend>  
 
 </package>
