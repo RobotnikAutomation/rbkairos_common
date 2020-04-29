@@ -5,12 +5,12 @@ hardware_control_loop:
 # Settings for ros_control hardware interface
 hardware_interface:
    joints: &robot_arm_joints
-     - robot_arm_shoulder_pan_joint
-     - robot_arm_shoulder_lift_joint
-     - robot_arm_elbow_joint
-     - robot_arm_wrist_1_joint
-     - robot_arm_wrist_2_joint
-     - robot_arm_wrist_3_joint
+     - $(arg prefix)arm_shoulder_pan_joint
+     - $(arg prefix)arm_shoulder_lift_joint
+     - $(arg prefix)arm_elbow_joint
+     - $(arg prefix)arm_wrist_1_joint
+     - $(arg prefix)arm_wrist_2_joint
+     - $(arg prefix)arm_wrist_3_joint
 
 # Publish all joint states ----------------------------------
 joint_state_controller:
@@ -35,12 +35,12 @@ scaled_pos_traj_controller:
    constraints:
       goal_time: 0.6
       stopped_velocity_tolerance: 0.05
-      robot_arm_shoulder_pan_joint: {trajectory: 0.2, goal: 0.1}
-      robot_arm_shoulder_lift_joint: {trajectory: 0.2, goal: 0.1}
-      robot_arm_elbow_joint: {trajectory: 0.2, goal: 0.1}
-      robot_arm_wrist_1_joint: {trajectory: 0.2, goal: 0.1}
-      robot_arm_wrist_2_joint: {trajectory: 0.2, goal: 0.1}
-      robot_arm_wrist_3_joint: {trajectory: 0.2, goal: 0.1}
+      $(arg prefix)arm_shoulder_pan_joint: {trajectory: 0.2, goal: 0.1}
+      $(arg prefix)arm_shoulder_lift_joint: {trajectory: 0.2, goal: 0.1}
+      $(arg prefix)arm_elbow_joint: {trajectory: 0.2, goal: 0.1}
+      $(arg prefix)arm_wrist_1_joint: {trajectory: 0.2, goal: 0.1}
+      $(arg prefix)arm_wrist_2_joint: {trajectory: 0.2, goal: 0.1}
+      $(arg prefix)arm_wrist_3_joint: {trajectory: 0.2, goal: 0.1}
    stop_trajectory_duration: 0.5
    state_publish_rate: 125
    action_monitor_rate: 10
@@ -51,12 +51,12 @@ pos_traj_controller:
    constraints:
       goal_time: 0.6
       stopped_velocity_tolerance: 0.05
-      robot_arm_shoulder_pan_joint: {trajectory: 0.2, goal: 0.1}
-      robot_arm_shoulder_lift_joint: {trajectory: 0.2, goal: 0.1}
-      robot_arm_elbow_joint: {trajectory: 0.2, goal: 0.1}
-      robot_arm_wrist_1_joint: {trajectory: 0.2, goal: 0.1}
-      robot_arm_wrist_2_joint: {trajectory: 0.2, goal: 0.1}
-      robot_arm_wrist_3_joint: {trajectory: 0.2, goal: 0.1}
+      $(arg prefix)arm_shoulder_pan_joint: {trajectory: 0.2, goal: 0.1}
+      $(arg prefix)arm_shoulder_lift_joint: {trajectory: 0.2, goal: 0.1}
+      $(arg prefix)arm_elbow_joint: {trajectory: 0.2, goal: 0.1}
+      $(arg prefix)arm_wrist_1_joint: {trajectory: 0.2, goal: 0.1}
+      $(arg prefix)arm_wrist_2_joint: {trajectory: 0.2, goal: 0.1}
+      $(arg prefix)arm_wrist_3_joint: {trajectory: 0.2, goal: 0.1}
    stop_trajectory_duration: 0.5
    state_publish_rate: 125
    action_monitor_rate: 10

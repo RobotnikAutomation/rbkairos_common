@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="robot_id" default="$(optenv ROBOT_ID robot)"/>
+  <arg name="prefix" default="$(arg robot_id)_"/>
+
+  <!-- kinematics: omni -->
+  <arg name="kinematics" default="$(optenv ROBOT_KINEMATICS omni)"/>
+  <arg name="wheel_diameter" default="$(optenv ROBOT_WHEEL_DIAMETER 0.25)"/>
+  <arg name="track_width" default="$(optenv ROBOT_TRACK_WIDTH 0.477)"/>
+  <arg name="ros_planar_move_plugin" default="false"/>
+  <arg name="sim" default="false"/>
+  <arg name="sim_arm_control" default="true"/>
+  <arg name="sim_gripper_control" default="false"/>
+  <arg name="cmd_vel" default="robotnik_base_control/cmd_vel"/>
+
+  <!-- Base control -->
+  <include file="$(find summit_xl_control)/launch/summit_xl_control.launch">
+    <arg name="robot_id" value="$(arg robot_id)"/>
+    <arg name="prefix" value="$(arg prefix)"/>
+    <arg name="kinematics" value="$(arg kinematics)"/>
+    <arg name="wheel_diameter" default="$(arg wheel_diameter)"/>
+    <arg name="track_width" default="$(arg track_width)"/>
+    <arg name="ros_planar_move_plugin" value="$(arg ros_planar_move_plugin)"/>
+    <arg name="sim" value="true"/>
+  </include>
+
+  <!-- Arm and gripper control for simulation -->
+  <group if="$(arg sim)">
+
+    <group if="$(arg sim_arm_control)">
+      
+      <rosparam file="$(find rbkairos_control)/config/ur_controllers.yaml" command="load" subst_value="true"/>
+      <node name="controller_spawner_arm" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="
+        pos_traj_controller
+      "/>
+    
+    </group>
+  
+            
+  </group>
+</launch>
