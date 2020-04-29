@@ -35,6 +35,15 @@
       "/>
     
     </group>
+
+    <group if="$(arg sim_gripper_control)">
+
+      <rosparam file="$(find rbkairos_control)/config/gripper_control.yaml" command="load" subst_value="true"/>
+      <node name="controller_spawner_gripper" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="
+        gripper_controller
+      "/>
+      
+    </group>
   
             
   </group>
