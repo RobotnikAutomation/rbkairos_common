@@ -42,6 +42,39 @@
       <limit effort="30" velocity="1.0" lower="0" upper="0" />
     </joint>
 
+    <link name="${prefix}_vacuum_cup_1_link"/>
+
+    <joint name="${prefix}_vacuum_cup_2_joint" type="revolute">
+      <origin xyz="0.1322 -0.0065 0.0189" rpy="0 0 0"/>
+      <parent link="${prefix}_vgc10_link"/>
+      <child link="${prefix}_vacuum_cup_2_link"/>
+      <axis xyz="1 0 0" rpy="0 0 0" />
+      <limit effort="30" velocity="1.0" lower="0" upper="0" />
+    </joint>
+
+    <link name="${prefix}_vacuum_cup_2_link"/>
+
+    <joint name="${prefix}_vacuum_cup_3_joint" type="revolute">
+      <origin xyz="0.1322 0.02 0" rpy="0 0 0"/>
+      <parent link="${prefix}_vgc10_link"/>
+      <child link="${prefix}_vacuum_cup_3_link"/>
+      <limit effort="30" velocity="1.0" lower="0" upper="0" />
+      <axis xyz="1 0 0" rpy="0 0 0" />
+    </joint>
+
+    <link name="${prefix}_vacuum_cup_3_link"/>
+
+    <joint name="${prefix}_vacuum_cup_4_joint" type="revolute">
+      <origin xyz="0.1322 0 0" rpy="0 0 0"/>
+      <parent link="${prefix}_vgc10_link"/>
+      <child link="${prefix}_vacuum_cup_4_link"/>
+      <limit effort="30" velocity="1.0" lower="0" upper="0" />
+      <axis xyz="1 0 0" rpy="0 0 0" />
+    </joint>
+
+    <link name="${prefix}_vacuum_cup_4_link"/>
+
+    <!-- Transmission -->
     <transmission name="${prefix}_vacuum_cup_1_joint">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${prefix}_vacuum_cup_1_joint">
@@ -52,16 +85,6 @@
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
     </transmission>
-
-    <link name="${prefix}_vacuum_cup_1_link"/>
-
-    <joint name="${prefix}_vacuum_cup_2_joint" type="revolute">
-      <origin xyz="0.1322 -0.0065 0.0189" rpy="0 0 0"/>
-      <parent link="${prefix}_vgc10_link"/>
-      <child link="${prefix}_vacuum_cup_2_link"/>
-      <axis xyz="1 0 0" rpy="0 0 0" />
-      <limit effort="30" velocity="1.0" lower="0" upper="0" />
-    </joint>
 
     <transmission name="${prefix}_vacuum_cup_2_joint">
       <type>transmission_interface/SimpleTransmission</type>
@@ -74,16 +97,6 @@
       </actuator>
     </transmission>
 
-    <link name="${prefix}_vacuum_cup_2_link"/>
-
-    <joint name="${prefix}_vacuum_cup_3_joint" type="revolute">
-      <origin xyz="0.1322 0.02 0" rpy="0 0 0"/>
-      <parent link="${prefix}_vgc10_link"/>
-      <child link="${prefix}_vacuum_cup_3_link"/>
-      <limit effort="30" velocity="1.0" lower="0" upper="0" />
-      <axis xyz="1 0 0" rpy="0 0 0" />
-    </joint>
-
     <transmission name="${prefix}_vacuum_cup_3_joint">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${prefix}_vacuum_cup_3_joint">
@@ -95,28 +108,16 @@
       </actuator>
     </transmission>
 
-    <link name="${prefix}_vacuum_cup_3_link"/>
-
-  <joint name="${prefix}_vacuum_cup_4_joint" type="revolute">
-    <origin xyz="0.1322 0 0" rpy="0 0 0"/>
-    <parent link="${prefix}_vgc10_link"/>
-    <child link="${prefix}_vacuum_cup_4_link"/>
-    <limit effort="30" velocity="1.0" lower="0" upper="0" />
-    <axis xyz="1 0 0" rpy="0 0 0" />
-  </joint>
-
-  <transmission name="${prefix}_vacuum_cup_4_joint">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="${prefix}_vacuum_cup_4_joint">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="${prefix}_vacuum_cup_4_joint">
-      <hardwareInterface>hardware_interface/PositionActuatorInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-
-  <link name="${prefix}_vacuum_cup_4_link"/>
+    <transmission name="${prefix}_vacuum_cup_4_joint">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${prefix}_vacuum_cup_4_joint">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${prefix}_vacuum_cup_4_joint">
+        <hardwareInterface>hardware_interface/PositionActuatorInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
 
   </xacro:macro>
 
