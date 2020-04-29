@@ -6,8 +6,8 @@
      <plugin name="gazebo_ros_vacuum_cup_1" filename="libgazebo_ros_vacuum_gripper.so">
        <robotNamespace>/robot</robotNamespace>
        <bodyName>robot_vgc10_vacuum_cup_1_link</bodyName>
-       <topicName>grasping_cup_1</topicName>
-       <serviceNamespace>gripper_1</serviceNamespace>
+       <topicName>vacuum_cup_1</topicName>
+       <serviceNamespace>vacuum_cup_1</serviceNamespace>
      </plugin>
    </gazebo>
 
