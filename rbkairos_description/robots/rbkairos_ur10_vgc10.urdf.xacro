@@ -7,8 +7,6 @@
 
   	<!-- First we import all posible elements defined in the urdf.xacro files. All these elements are defined as macro:xacros -->
 
-    <xacro:include filename="$(find rbkairos_description)/urdf/structures/box.urdf.xacro" />
-
   	<!-- Import summit XL base elements -->
   	<xacro:include filename="$(find summit_xl_description)/urdf/bases/summit_xls_base.urdf.xacro" />
 
@@ -117,11 +115,6 @@
   				<child link="$(arg prefix)arm_base_link" />
   			</joint>
   		</xacro:if>
-
-      <xacro:container prefix="$(arg prefix)" parent="$(arg prefix)base_link">
-        <origin xyz="1 1 0" rpy="0 0 0"/>
-      </xacro:container>
-
 
       <!-- OnRobot VGC-10 -->
       <xacro:vgc10 prefix="$(arg prefix)vgc10" parent="$(arg prefix)arm_tool0">
