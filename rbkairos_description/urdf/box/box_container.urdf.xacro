@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<robot name="box_container" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:include filename="$(find rbkairos_description)/urdf/inertia.urdf.xacro" />
+
+  <xacro:arg name="prefix" default="box_"/>
+  <xacro:property name="prefix" value="$(arg prefix)" />
+
+
+  <link name="${prefix}container_base_link">
+  </link>
+
+  <joint name="${prefix}container_joint" type="fixed">
+    <origin rpy="1.57 0 0" xyz="0 0 0"/>
+    <parent link="${prefix}container_base_link"/>
+    <child link="${prefix}container_link"/>
+  </joint>
+
+  <link name="${prefix}container_link">
+    <inertial>
+      <mass value="0.1" />
+      <origin xyz="0 0.011 0" />
+      <solid_cuboid_inertia m="0.1" h="0.022" d="0.225" w="0.31"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://rbkairos_description/urdf/box/meshes/box_container.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://rbkairos_description/urdf/box/meshes/box_container.stl"/>
+      </geometry>
+    </collision>  
+  </link>
+  
+</robot>
