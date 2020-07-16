@@ -7,6 +7,3 @@ controller_list:
       - robot_arm_wrist_1_joint
       - robot_arm_wrist_2_joint
       - robot_arm_wrist_3_joint
-  - name: fake_gripper_controller
-    joints:
-      - robot_vgc10_vgc10_joint

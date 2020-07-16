@@ -23,7 +23,7 @@
   <arg name="capabilities" default=""/>
   <arg name="disable_capabilities" default=""/>
 
-  <arg name="sim" default="false"/>
+  <arg name="sim" default="true"/>
 
   <!-- load these non-default MoveGroup capabilities (space seperated) -->
   <!--

@@ -19,12 +19,6 @@ hardware_interface:
     - robot_vgc10_vacuum_cup_2_joint
     - robot_vgc10_vacuum_cup_3_joint
     - robot_vgc10_vacuum_cup_4_joint
-    - robot_back_left_wheel_joint
-    - robot_back_right_wheel_joint
-    - robot_front_laser_base_joint
-    - robot_front_left_wheel_joint
-    - robot_front_right_wheel_joint
-    - robot_rear_laser_base_joint
   sim_control_mode: 1  # 0: position, 1: velocity
 # Publish all joint states
 # Creates the /joint_states topic necessary in ROS
@@ -48,4 +42,4 @@ controller_list:
     default: True
     type: FollowJointTrajectory
     joints:
-      - robot_vgc10_vgc10_joint
+      []
