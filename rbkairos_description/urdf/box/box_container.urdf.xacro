@@ -35,5 +35,16 @@
       </geometry>
     </collision>  
   </link>
+
+    <gazebo reference="${prefix}container_link">
+      <visual>  
+        <material>  
+          <ambient>0.0 0.0 0.0 1.0</ambient>  
+          <diffuse>0.2 0.2 0.2 1.0</diffuse>  
+          <specular>0.584313725 0.647058824 0.650980392 1.0</specular>  
+          <emissive>0.0 0.0 0.0 0.0</emissive>  
+        </material>  
+      </visual>  
+    </gazebo>
   
 </robot>
