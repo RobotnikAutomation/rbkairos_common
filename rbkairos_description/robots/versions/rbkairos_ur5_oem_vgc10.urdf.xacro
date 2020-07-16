@@ -16,6 +16,7 @@
 	<!-- Include OnRobot vgc10 -->
     <xacro:include filename="$(find rbkairos_description)/urdf/structures/vgc10.urdf.xacro" />
     <xacro:include filename="$(find rbkairos_description)/urdf/structures/vgc10.gazebo.xacro" />
+    <xacro:include filename="$(find rbkairos_description)/urdf/structures/realsense2vgc10_support.urdf.xacro" />
 
   	<!-- Import summit XL wheels -->
   	<xacro:include filename="$(find summit_xl_description)/urdf/wheels/omni_wheel.urdf.xacro" />
@@ -198,6 +199,16 @@
   		<xacro:holder prefix="${prefix}right_" parent="${prefix}base_link">
   			<origin xyz="${right_holder_offset_x} ${right_holder_offset_y} ${right_holder_offset_z}" rpy="0 0 0"/>
   		</xacro:holder> 
+
+        <!-- Intel Realsense support-->
+        <!--xacro:realsense2vgc10_support prefix="$(arg prefix)wrist_rgbd_support" parent="$(arg prefix)arm_tool0">
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0.0"/>
+  		</xacro:realsense2vgc10_support-->
+
+    	<!-- Intel Realsense -->
+    	<xacro:sensor_intel_d435 prefix="$(arg prefix)wrist_rgbd" parent="$(arg prefix)arm_tool0" prefix_topic="wrist_rgbd">
+      		<origin xyz="0.07 0.0 0.065" rpy="${pi} ${-pi/2} 0"/>
+    	</xacro:sensor_intel_d435>
 
 <gazebo>
   <plugin name="ground_truth_controller" filename="librobotnik_gazebo_ground_truth_odom.so">
