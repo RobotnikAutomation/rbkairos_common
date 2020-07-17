@@ -21,6 +21,30 @@
         <joint name="robot_arm_wrist_2_joint" value="-1.57" />
         <joint name="robot_arm_wrist_3_joint" value="0" />
     </group_state>
+    <group_state name="left_approach" group="arm">
+        <joint name="robot_arm_elbow_joint" value="-1.5555856448668974" />
+        <joint name="robot_arm_shoulder_lift_joint" value="-1.3920018498200468" />
+        <joint name="robot_arm_shoulder_pan_joint" value="-0.30432465914087814" />
+        <joint name="robot_arm_wrist_1_joint" value="-1.7641883671723742" />
+        <joint name="robot_arm_wrist_2_joint" value="1.55699911110477" />
+        <joint name="robot_arm_wrist_3_joint" value="1.272853415291074" />
+    </group_state>
+    <group_state name="right_approach" group="arm">
+        <joint name="robot_arm_elbow_joint" value="-1.5554015382449062" />
+        <joint name="robot_arm_shoulder_lift_joint" value="-1.3919907535379004" />
+        <joint name="robot_arm_shoulder_pan_joint" value="0.8280848330884689" />
+        <joint name="robot_arm_wrist_1_joint" value="-1.7650333093769977" />
+        <joint name="robot_arm_wrist_2_joint" value="1.5569652432601888" />
+        <joint name="robot_arm_wrist_3_joint" value="2.4051812953491805" />
+    </group_state>
+    <group_state name="center_approach" group="arm">
+        <joint name="robot_arm_elbow_joint" value="-1.66854812473699" />
+        <joint name="robot_arm_shoulder_lift_joint" value="-1.2347874098298783" />
+        <joint name="robot_arm_shoulder_pan_joint" value="0.3113579652987033" />
+        <joint name="robot_arm_wrist_1_joint" value="-1.8087132992913482" />
+        <joint name="robot_arm_wrist_2_joint" value="1.557505645512065" />
+        <joint name="robot_arm_wrist_3_joint" value="1.8880315729381323" />
+    </group_state>
     <!--PASSIVE JOINT: Purpose: this element is used to mark joints that are not actuated-->
     <passive_joint name="robot_back_left_wheel_joint" />
     <passive_joint name="robot_back_right_wheel_joint" />
@@ -39,7 +63,7 @@
     <disable_collisions link1="robot_arm_base_link" link2="robot_base_logo_left" reason="Never" />
     <disable_collisions link1="robot_arm_base_link" link2="robot_base_logo_rear" reason="Never" />
     <disable_collisions link1="robot_arm_base_link" link2="robot_base_logo_right" reason="Never" />
-    <disable_collisions link1="robot_arm_base_link" link2="robot_centered_holder_link" reason="Never" />
+    <disable_collisions link1="robot_arm_base_link" link2="robot_center_holder_link" reason="Never" />
     <disable_collisions link1="robot_arm_base_link" link2="robot_front_laser_base_link" reason="Never" />
     <disable_collisions link1="robot_arm_base_link" link2="robot_front_left_wheel_link" reason="Never" />
     <disable_collisions link1="robot_arm_base_link" link2="robot_front_rgbd_camera_link" reason="Never" />
@@ -68,7 +92,7 @@
     <disable_collisions link1="robot_arm_shoulder_link" link2="robot_base_logo_left" reason="Never" />
     <disable_collisions link1="robot_arm_shoulder_link" link2="robot_base_logo_rear" reason="Never" />
     <disable_collisions link1="robot_arm_shoulder_link" link2="robot_base_logo_right" reason="Never" />
-    <disable_collisions link1="robot_arm_shoulder_link" link2="robot_centered_holder_link" reason="Never" />
+    <disable_collisions link1="robot_arm_shoulder_link" link2="robot_center_holder_link" reason="Never" />
     <disable_collisions link1="robot_arm_shoulder_link" link2="robot_front_laser_base_link" reason="Never" />
     <disable_collisions link1="robot_arm_shoulder_link" link2="robot_front_left_wheel_link" reason="Never" />
     <disable_collisions link1="robot_arm_shoulder_link" link2="robot_front_rgbd_camera_link" reason="Never" />
@@ -102,7 +126,7 @@
     <disable_collisions link1="robot_back_left_wheel_link" link2="robot_base_logo_left" reason="Never" />
     <disable_collisions link1="robot_back_left_wheel_link" link2="robot_base_logo_rear" reason="Never" />
     <disable_collisions link1="robot_back_left_wheel_link" link2="robot_base_logo_right" reason="Never" />
-    <disable_collisions link1="robot_back_left_wheel_link" link2="robot_centered_holder_link" reason="Never" />
+    <disable_collisions link1="robot_back_left_wheel_link" link2="robot_center_holder_link" reason="Never" />
     <disable_collisions link1="robot_back_left_wheel_link" link2="robot_front_laser_base_link" reason="Never" />
     <disable_collisions link1="robot_back_left_wheel_link" link2="robot_front_left_wheel_link" reason="Never" />
     <disable_collisions link1="robot_back_left_wheel_link" link2="robot_front_rgbd_camera_link" reason="Never" />
@@ -118,7 +142,7 @@
     <disable_collisions link1="robot_back_right_wheel_link" link2="robot_base_logo_left" reason="Never" />
     <disable_collisions link1="robot_back_right_wheel_link" link2="robot_base_logo_rear" reason="Never" />
     <disable_collisions link1="robot_back_right_wheel_link" link2="robot_base_logo_right" reason="Never" />
-    <disable_collisions link1="robot_back_right_wheel_link" link2="robot_centered_holder_link" reason="Never" />
+    <disable_collisions link1="robot_back_right_wheel_link" link2="robot_center_holder_link" reason="Never" />
     <disable_collisions link1="robot_back_right_wheel_link" link2="robot_front_laser_base_link" reason="Never" />
     <disable_collisions link1="robot_back_right_wheel_link" link2="robot_front_left_wheel_link" reason="Never" />
     <disable_collisions link1="robot_back_right_wheel_link" link2="robot_front_rgbd_camera_link" reason="Never" />
@@ -133,7 +157,7 @@
     <disable_collisions link1="robot_base_chapa" link2="robot_base_logo_left" reason="Never" />
     <disable_collisions link1="robot_base_chapa" link2="robot_base_logo_rear" reason="Never" />
     <disable_collisions link1="robot_base_chapa" link2="robot_base_logo_right" reason="Never" />
-    <disable_collisions link1="robot_base_chapa" link2="robot_centered_holder_link" reason="Never" />
+    <disable_collisions link1="robot_base_chapa" link2="robot_center_holder_link" reason="Never" />
     <disable_collisions link1="robot_base_chapa" link2="robot_front_laser_base_link" reason="Never" />
     <disable_collisions link1="robot_base_chapa" link2="robot_front_left_wheel_link" reason="Never" />
     <disable_collisions link1="robot_base_chapa" link2="robot_front_rgbd_camera_link" reason="Never" />
@@ -147,7 +171,7 @@
     <disable_collisions link1="robot_base_footprint" link2="robot_base_logo_left" reason="Never" />
     <disable_collisions link1="robot_base_footprint" link2="robot_base_logo_rear" reason="Never" />
     <disable_collisions link1="robot_base_footprint" link2="robot_base_logo_right" reason="Never" />
-    <disable_collisions link1="robot_base_footprint" link2="robot_centered_holder_link" reason="Never" />
+    <disable_collisions link1="robot_base_footprint" link2="robot_center_holder_link" reason="Never" />
     <disable_collisions link1="robot_base_footprint" link2="robot_front_laser_base_link" reason="Never" />
     <disable_collisions link1="robot_base_footprint" link2="robot_front_left_wheel_link" reason="Never" />
     <disable_collisions link1="robot_base_footprint" link2="robot_front_rgbd_camera_link" reason="Never" />
@@ -160,7 +184,7 @@
     <disable_collisions link1="robot_base_link" link2="robot_base_logo_left" reason="Adjacent" />
     <disable_collisions link1="robot_base_link" link2="robot_base_logo_rear" reason="Adjacent" />
     <disable_collisions link1="robot_base_link" link2="robot_base_logo_right" reason="Adjacent" />
-    <disable_collisions link1="robot_base_link" link2="robot_centered_holder_link" reason="Adjacent" />
+    <disable_collisions link1="robot_base_link" link2="robot_center_holder_link" reason="Adjacent" />
     <disable_collisions link1="robot_base_link" link2="robot_front_laser_base_link" reason="Adjacent" />
     <disable_collisions link1="robot_base_link" link2="robot_front_left_wheel_link" reason="Adjacent" />
     <disable_collisions link1="robot_base_link" link2="robot_front_rgbd_camera_link" reason="Adjacent" />
@@ -172,7 +196,7 @@
     <disable_collisions link1="robot_base_logo_front" link2="robot_base_logo_left" reason="Never" />
     <disable_collisions link1="robot_base_logo_front" link2="robot_base_logo_rear" reason="Never" />
     <disable_collisions link1="robot_base_logo_front" link2="robot_base_logo_right" reason="Never" />
-    <disable_collisions link1="robot_base_logo_front" link2="robot_centered_holder_link" reason="Never" />
+    <disable_collisions link1="robot_base_logo_front" link2="robot_center_holder_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_front" link2="robot_front_laser_base_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_front" link2="robot_front_left_wheel_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_front" link2="robot_front_rgbd_camera_link" reason="Never" />
@@ -183,7 +207,7 @@
     <disable_collisions link1="robot_base_logo_front" link2="robot_right_holder_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_left" link2="robot_base_logo_rear" reason="Never" />
     <disable_collisions link1="robot_base_logo_left" link2="robot_base_logo_right" reason="Never" />
-    <disable_collisions link1="robot_base_logo_left" link2="robot_centered_holder_link" reason="Never" />
+    <disable_collisions link1="robot_base_logo_left" link2="robot_center_holder_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_left" link2="robot_front_laser_base_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_left" link2="robot_front_left_wheel_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_left" link2="robot_front_rgbd_camera_link" reason="Never" />
@@ -193,7 +217,7 @@
     <disable_collisions link1="robot_base_logo_left" link2="robot_rear_laser_base_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_left" link2="robot_right_holder_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_rear" link2="robot_base_logo_right" reason="Never" />
-    <disable_collisions link1="robot_base_logo_rear" link2="robot_centered_holder_link" reason="Never" />
+    <disable_collisions link1="robot_base_logo_rear" link2="robot_center_holder_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_rear" link2="robot_front_laser_base_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_rear" link2="robot_front_left_wheel_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_rear" link2="robot_front_rgbd_camera_link" reason="Never" />
@@ -202,7 +226,7 @@
     <disable_collisions link1="robot_base_logo_rear" link2="robot_left_holder_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_rear" link2="robot_rear_laser_base_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_rear" link2="robot_right_holder_link" reason="Never" />
-    <disable_collisions link1="robot_base_logo_right" link2="robot_centered_holder_link" reason="Never" />
+    <disable_collisions link1="robot_base_logo_right" link2="robot_center_holder_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_right" link2="robot_front_laser_base_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_right" link2="robot_front_left_wheel_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_right" link2="robot_front_rgbd_camera_link" reason="Never" />
@@ -211,14 +235,14 @@
     <disable_collisions link1="robot_base_logo_right" link2="robot_left_holder_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_right" link2="robot_rear_laser_base_link" reason="Never" />
     <disable_collisions link1="robot_base_logo_right" link2="robot_right_holder_link" reason="Never" />
-    <disable_collisions link1="robot_centered_holder_link" link2="robot_front_laser_base_link" reason="Never" />
-    <disable_collisions link1="robot_centered_holder_link" link2="robot_front_left_wheel_link" reason="Never" />
-    <disable_collisions link1="robot_centered_holder_link" link2="robot_front_rgbd_camera_link" reason="Never" />
-    <disable_collisions link1="robot_centered_holder_link" link2="robot_front_right_wheel_link" reason="Never" />
-    <disable_collisions link1="robot_centered_holder_link" link2="robot_imu_link" reason="Never" />
-    <disable_collisions link1="robot_centered_holder_link" link2="robot_left_holder_link" reason="Default" />
-    <disable_collisions link1="robot_centered_holder_link" link2="robot_rear_laser_base_link" reason="Never" />
-    <disable_collisions link1="robot_centered_holder_link" link2="robot_right_holder_link" reason="Default" />
+    <disable_collisions link1="robot_center_holder_link" link2="robot_front_laser_base_link" reason="Never" />
+    <disable_collisions link1="robot_center_holder_link" link2="robot_front_left_wheel_link" reason="Never" />
+    <disable_collisions link1="robot_center_holder_link" link2="robot_front_rgbd_camera_link" reason="Never" />
+    <disable_collisions link1="robot_center_holder_link" link2="robot_front_right_wheel_link" reason="Never" />
+    <disable_collisions link1="robot_center_holder_link" link2="robot_imu_link" reason="Never" />
+    <disable_collisions link1="robot_center_holder_link" link2="robot_left_holder_link" reason="Default" />
+    <disable_collisions link1="robot_center_holder_link" link2="robot_rear_laser_base_link" reason="Never" />
+    <disable_collisions link1="robot_center_holder_link" link2="robot_right_holder_link" reason="Default" />
     <disable_collisions link1="robot_front_laser_base_link" link2="robot_front_left_wheel_link" reason="Never" />
     <disable_collisions link1="robot_front_laser_base_link" link2="robot_front_rgbd_camera_link" reason="Never" />
     <disable_collisions link1="robot_front_laser_base_link" link2="robot_front_right_wheel_link" reason="Never" />

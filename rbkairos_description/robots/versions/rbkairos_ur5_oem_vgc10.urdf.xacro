@@ -79,9 +79,9 @@
   	<xacro:property name="gps_offset_z" value="0.302"/>
 
 	<!-- Holder parameters -->
-  	<xacro:property name="centered_holder_offset_x" value="-0.195"/>
-  	<xacro:property name="centered_holder_offset_y" value="0.0"/>
-  	<xacro:property name="centered_holder_offset_z" value="0.56162"/>	
+  	<xacro:property name="center_holder_offset_x" value="-0.195"/>
+  	<xacro:property name="center_holder_offset_y" value="0.0"/>
+  	<xacro:property name="center_holder_offset_z" value="0.56162"/>	
 
   	<xacro:property name="left_holder_offset_x" value="-0.195"/>
   	<xacro:property name="left_holder_offset_y" value="0.225"/>
@@ -188,8 +188,8 @@
   		</xacro:sensor_zed-->
 
 		<!-- HOLDERS -->
-  		<xacro:holder prefix="${prefix}centered_" parent="${prefix}base_link">
-  			<origin xyz="${centered_holder_offset_x} ${centered_holder_offset_y} ${centered_holder_offset_z}" rpy="0 0 0"/>
+  		<xacro:holder prefix="${prefix}center_" parent="${prefix}base_link">
+  			<origin xyz="${center_holder_offset_x} ${center_holder_offset_y} ${center_holder_offset_z}" rpy="0 0 0"/>
   		</xacro:holder>
 
   		<xacro:holder prefix="${prefix}left_" parent="${prefix}base_link">
@@ -206,9 +206,9 @@
   		</xacro:realsense2vgc10_support-->
 
     	<!-- Intel Realsense -->
-    	<xacro:sensor_intel_d435 prefix="$(arg prefix)wrist_rgbd" parent="$(arg prefix)arm_tool0" prefix_topic="wrist_rgbd">
-      		<origin xyz="0.07 0.0 0.065" rpy="${pi} ${-pi/2} 0"/>
-    	</xacro:sensor_intel_d435>
+        <!--<xacro:sensor_intel_d435 prefix="$(arg prefix)wrist_rgbd" parent="$(arg prefix)arm_tool0" prefix_topic="wrist_rgbd">-->
+              <!--<origin xyz="0.07 0.0 0.065" rpy="${pi} ${-pi/2} 0"/>-->
+        <!--</xacro:sensor_intel_d435>-->
 
 <gazebo>
   <plugin name="ground_truth_controller" filename="librobotnik_gazebo_ground_truth_odom.so">

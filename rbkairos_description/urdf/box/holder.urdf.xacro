@@ -8,7 +8,7 @@
 
   <xacro:macro name="holder" params="prefix parent *origin">
 
-    <joint name="${prefix}holder2robot_joint" type="fixed">
+    <joint name="${prefix}holder_base_joint" type="fixed">
       <xacro:insert_block name="origin" />
       <parent link="${parent}"/>
       <child link="${prefix}holder_base_link"/>
@@ -18,7 +18,7 @@
     </link>
 
     <joint name="${prefix}holder_joint" type="fixed">
-      <origin rpy="1.57 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
       <parent link="${prefix}holder_base_link"/>
       <child link="${prefix}holder_link"/>
     </joint>
@@ -42,6 +42,14 @@
         </geometry>
       </collision>  
     </link>
+    
+    <joint name="${prefix}holder_approach_joint" type="fixed">
+      <origin rpy="3.1415 0 0" xyz="0 0 0.5"/>
+      <parent link="${prefix}holder_link"/>
+      <child link="${prefix}holder_approach_link"/>
+    </joint>
+
+    <link name="${prefix}holder_approach_link"/>
 
     <gazebo reference="${prefix}holder_link">
       <visual>  
