@@ -35,7 +35,7 @@
   <xacro:property name="arm_orientation_p" value="0"/>
   <xacro:property name="arm_orientation_y" value="${3*pi/4}"/>
   
-  <xacro:macro name="rbkairos" params="prefix publish_bf hq load_kinematics_file">
+  <xacro:macro name="rbkairos_ur5_egh" params="prefix publish_bf hq load_kinematics_file">
 
 		<!-- *************** -->
 		<!-- Robots Elements -->
@@ -85,15 +85,15 @@
       <origin xyz="-0.075 0.0 0.065" rpy="0 ${-pi/2} 0"/>
     </xacro:sensor_r430>
 
-	</xacro:macro>
-
    <!-- Gazebo ros control pluggins -->
    <xacro:ros_control/>
    <xacro:if value="$(arg ros_planar_move_plugin)">
 	   <xacro:omni_steering prefix="$(arg prefix)" publish_tf="true"/>
    </xacro:if>
+	</xacro:macro>
 
-   <xacro:rbkairos prefix="$(arg prefix)" publish_bf="true" hq="true" load_kinematics_file="$(arg load_kinematics_file)"/>
+
+   <!--xacro:rbkairos_ur10_wsg50 prefix="$(arg prefix)" publish_bf="true" hq="true" load_kinematics_file="$(arg load_kinematics_file)"/-->
 
 
 

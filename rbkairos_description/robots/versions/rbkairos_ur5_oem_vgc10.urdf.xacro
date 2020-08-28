@@ -89,7 +89,7 @@
     <xacro:property name="arm_orientation_p" value="0"/>
     <xacro:property name="arm_orientation_y" value="0"/>
 
-    <xacro:macro name="rbkairos" params="prefix publish_bf hq load_kinematics_file">
+    <xacro:macro name="rbkairos_ur5_oem_vgc10" params="prefix publish_bf hq load_kinematics_file">
 
         <!-- *************** -->
         <!-- Robots Elements -->
@@ -172,14 +172,14 @@
         </xacro:sensor_zed-->
 
         <!-- Intel Realsense support-->
-        <!--xacro:realsense2vgc10_support prefix="$(arg prefix)wrist_rgbd_support" parent="$(arg prefix)arm_tool0">
+        <xacro:realsense2vgc10_support prefix="$(arg prefix)wrist_rgbd_support" parent="$(arg prefix)arm_tool0">
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0.0"/>
-        </xacro:realsense2vgc10_support-->
+        </xacro:realsense2vgc10_support>
 
         <!-- Intel Realsense -->
-        <!--<xacro:sensor_intel_d435 prefix="$(arg prefix)wrist_rgbd" parent="$(arg prefix)arm_tool0" prefix_topic="wrist_rgbd">-->
-              <!--<origin xyz="0.07 0.0 0.065" rpy="${pi} ${-pi/2} 0"/>-->
-        <!--</xacro:sensor_intel_d435>-->
+        <xacro:sensor_intel_d435 prefix="$(arg prefix)wrist_rgbd" parent="$(arg prefix)wrist_rgbd_support_second_link" prefix_topic="wrist_rgbd" use_nominal_extrinsics="true" >
+              <origin xyz="0.07 0.0 0.065" rpy="${pi} ${-pi/2} 0"/>
+        </xacro:sensor_intel_d435>
 
       <gazebo>
         <plugin name="ground_truth_controller" filename="librobotnik_gazebo_ground_truth_odom.so">
@@ -213,14 +213,12 @@
         </plugin>
       </gazebo>
 
-    </xacro:macro>
-
     <!-- Gazebo ros control pluggins -->
     <xacro:ros_control/>
     <xacro:if value="$(arg ros_planar_move_plugin)">
         <xacro:omni_steering prefix="$(arg prefix)" publish_tf="true"/>
     </xacro:if>
+    </xacro:macro>
 
-    <xacro:rbkairos prefix="$(arg prefix)" publish_bf="true" hq="true" load_kinematics_file="$(arg load_kinematics_file)"/>
 
 </robot>
