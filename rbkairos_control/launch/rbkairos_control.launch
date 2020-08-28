@@ -31,9 +31,9 @@
 
     <group if="$(arg sim_arm_control)">
 
-      <rosparam file="$(find rbkairos_control)/config/ur_controllers.yaml" command="load" subst_value="true" ns="arm"/>
+      <rosparam file="$(find rbkairos_control)/config/ur_controllers.yaml" command="load" ns="arm" subst_value="true"/>
       <node name="controller_spawner_arm" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="
-        $(arg arm_controllers)
+        arm/$(arg arm_controllers)
       "/>
 
     </group>
@@ -42,7 +42,7 @@
 
       <rosparam file="$(find rbkairos_control)/config/gripper_control.yaml" command="load" subst_value="true" ns="gripper"/>
       <node name="controller_spawner_gripper" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="
-        $(arg gripper_controllers)
+        gripper/$(arg gripper_controllers)
       "/>
 
     </group>
