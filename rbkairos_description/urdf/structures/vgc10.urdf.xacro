@@ -39,7 +39,7 @@
       <parent link="${prefix}_vgc10_link"/>
       <child link="${prefix}_vacuum_cup_1_link"/>
       <axis xyz="1 0 0" rpy="0 0 0" />
-      <limit effort="30" velocity="1.0" lower="0" upper="0" />
+      <limit effort="30" velocity="1.0" lower="-0.1" upper="0.1" />
     </joint>
 
     <link name="${prefix}_vacuum_cup_1_link">
@@ -55,7 +55,7 @@
       <parent link="${prefix}_vgc10_link"/>
       <child link="${prefix}_vacuum_cup_2_link"/>
       <axis xyz="1 0 0" rpy="0 0 0" />
-      <limit effort="30" velocity="1.0" lower="0" upper="0" />
+      <limit effort="30" velocity="1.0" lower="-0.1" upper="0.1" />
     </joint>
 
     <link name="${prefix}_vacuum_cup_2_link">
@@ -70,7 +70,7 @@
       <origin xyz="0.1322 0.02 0" rpy="0 0 0"/>
       <parent link="${prefix}_vgc10_link"/>
       <child link="${prefix}_vacuum_cup_3_link"/>
-      <limit effort="30" velocity="1.0" lower="0" upper="0" />
+      <limit effort="30" velocity="1.0" lower="-0.1" upper="0.1" />
       <axis xyz="1 0 0" rpy="0 0 0" />
     </joint>
 
@@ -86,7 +86,7 @@
       <origin xyz="0.1322 0 0" rpy="0 0 0"/>
       <parent link="${prefix}_vgc10_link"/>
       <child link="${prefix}_vacuum_cup_4_link"/>
-      <limit effort="30" velocity="1.0" lower="0" upper="0" />
+      <limit effort="30" velocity="1.0" lower="-0.1" upper="0.1" />
       <axis xyz="1 0 0" rpy="0 0 0" />
     </joint>
 
