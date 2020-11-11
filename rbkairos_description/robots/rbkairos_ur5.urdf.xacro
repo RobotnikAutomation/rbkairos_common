@@ -13,20 +13,7 @@
 
 
 	<!-- Include UR-5 ARM -->
-	<!--xacro:include filename="$(find ur_description)/urdf/ur10.urdf.xacro" /-->
-	  <!--ur10e parameters files -->
-	  <xacro:arg name="joint_limit_params" default="$(find rbkairos_control)/config/ur/ur5e/joint_limits.yaml"/>
-	  <xacro:arg name="kinematics_params" default="$(find rbkairos_control)/config/ur/ur5e/default_kinematics.yaml"/>
-	  <xacro:arg name="physical_params" default="$(find rbkairos_control)/config/ur/ur5e/physical_parameters.yaml"/>
-	  <xacro:arg name="visual_params" default="$(find rbkairos_control)/config/ur/ur5e/visual_parameters.yaml"/>
-	  <!--common parameters -->
-	  <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface" />
-	  <xacro:arg name="safety_limits" default="false" doc="If True, enable the safety limits controller"/>
-	  <xacro:arg name="safety_pos_margin" default="0.15" doc="The lower/upper limits in the safety controller" />
-	  <xacro:arg name="safety_k_position" default="20" doc="Used to set k position in the safety controller" />
-
-	<!-- import main macro -->
- 	<xacro:include filename="$(find ur_description)/urdf/ur_macro.xacro"/>
+	<xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
 
 
 	<!-- Flag to select the high or low quality model -->
@@ -56,21 +43,32 @@
 
 
 		<!-- UR-5 ARM -->
-		<joint name="$(arg prefix)arm_base_joint" type="fixed">
-						<origin xyz="${arm_position_x} ${arm_position_y} ${arm_position_z}" rpy="${arm_orientation_r} ${arm_orientation_p} ${arm_orientation_y}"/>
-						<parent link="$(arg prefix)base_link" />
-						<child link="$(arg prefix)arm_base_link" />
-					</joint>	
-		<xacro:ur_robot
-			 prefix="$(arg prefix)arm_"
-			 joint_limits_parameters_file="$(arg joint_limit_params)"
-			 kinematics_parameters_file="$(arg kinematics_params)"
-			 physical_parameters_file="$(arg physical_params)"
-			 visual_parameters_file="$(arg visual_params)"
-			 transmission_hw_interface="$(arg transmission_hw_interface)"
-			 safety_limits="$(arg safety_limits)"
-			 safety_pos_margin="$(arg safety_pos_margin)"
-			 safety_k_position="$(arg safety_k_position)"/>
+		<xacro:if value="$(arg load_kinematics_file)">
+        <xacro:ur5_robot prefix="$(arg prefix)arm_" joint_limited="true"
+          shoulder_pan_lower_limit="${-pi}" shoulder_pan_upper_limit="${pi}"
+          wrist_3_lower_limit="${-pi}" wrist_3_upper_limit="${pi}"
+          kinematics_file="${load_yaml('$(find rbkairos_control)/config/ur5_calibration.yaml')}">
+        </xacro:ur5_robot>
+
+        <joint name="$(arg prefix)arm_base_joint" type="fixed">
+          <origin xyz="${arm_position_x} ${arm_position_y} ${arm_position_z}" rpy="${arm_orientation_r} ${arm_orientation_p} ${arm_orientation_y}"/>
+          <parent link="$(arg prefix)base_link" />
+          <child link="$(arg prefix)arm_base_link" />
+        </joint>
+		</xacro:if>
+
+		<xacro:unless value="$(arg load_kinematics_file)">
+        <xacro:ur5_robot prefix="$(arg prefix)arm_" joint_limited="true"
+          shoulder_pan_lower_limit="${-pi}" shoulder_pan_upper_limit="${pi}"
+          wrist_3_lower_limit="${-pi}" wrist_3_upper_limit="${pi}">
+        </xacro:ur5_robot>
+
+        <joint name="$(arg prefix)arm_base_joint" type="fixed">
+          <origin xyz="${arm_position_x} ${arm_position_y} ${arm_position_z}" rpy="${arm_orientation_r} ${arm_orientation_p} ${arm_orientation_y}"/>
+          <parent link="$(arg prefix)base_link" />
+          <child link="$(arg prefix)arm_base_link" />
+        </joint>
+		</xacro:unless>
 
 	</xacro:macro>
 
