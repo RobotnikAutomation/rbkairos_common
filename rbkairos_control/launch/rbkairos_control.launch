@@ -17,7 +17,7 @@
 
   <!-- Base control -->
   <include file="$(find summit_xl_control)/launch/summit_xl_control.launch">
-    <arg name="robot_id" value="$(arg robot_id)"/>
+    <arg name="id_robot" value="$(arg robot_id)"/>
     <arg name="prefix" value="$(arg prefix)"/>
     <arg name="kinematics" value="$(arg kinematics)"/>
     <arg name="wheel_diameter" value="$(arg wheel_diameter)"/>
