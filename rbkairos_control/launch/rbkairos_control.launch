@@ -17,7 +17,7 @@
 
   <!-- Base control -->
   <include file="$(find summit_xl_control)/launch/summit_xl_control.launch">
-    <arg name="robot_id" value="$(arg robot_id)"/>
+    <arg name="id_robot" value="$(arg robot_id)"/>
     <arg name="prefix" value="$(arg prefix)"/>
     <arg name="kinematics" value="$(arg kinematics)"/>
     <arg name="wheel_diameter" value="$(arg wheel_diameter)"/>
@@ -33,7 +33,7 @@
 
       <rosparam file="$(find rbkairos_control)/config/ur_controllers.yaml" command="load" ns="arm" subst_value="true"/>
       <node name="controller_spawner_arm" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="
-        arm/$(arg arm_controllers)
+        $(arg arm_controllers)
       "/>
 
     </group>
@@ -42,7 +42,7 @@
 
       <rosparam file="$(find rbkairos_control)/config/gripper_control.yaml" command="load" subst_value="true" ns="gripper"/>
       <node name="controller_spawner_gripper" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="
-        gripper/$(arg gripper_controllers)
+        $(arg gripper_controllers)
       "/>
 
     </group>

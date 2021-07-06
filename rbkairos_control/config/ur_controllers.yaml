@@ -3,7 +3,7 @@ hardware_control_loop:
    loop_hz: 125
 
 # Settings for ros_control hardware interface
-hardware_interface:
+ur_hardware_interface:
    joints: &robot_arm_joints
      - $(arg prefix)arm_shoulder_pan_joint
      - $(arg prefix)arm_shoulder_lift_joint
