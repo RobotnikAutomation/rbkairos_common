@@ -12,6 +12,8 @@
 
     <!-- Include UR-5 ARM -->
 	<xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
+	<!-- Include EGH Gripper-->
+	<xacro:include filename="$(find egh_gripper_description)/urdf/egh_gripper.urdf.xacro" />
 
   	<!-- Import summit XL wheels -->
   	<xacro:include filename="$(find summit_xl_description)/urdf/wheels/omni_wheel.urdf.xacro" />
@@ -142,6 +144,10 @@
   		<xacro:sensor_orbbec_astra prefix="$(arg prefix)front_rgbd_camera" parent="$(arg prefix)base_link" prefix_topic="front_rgbd_camera">
   			<origin xyz="${front_rgbd_camera_offset_x} ${front_rgbd_camera_offset_y} ${front_rgbd_camera_offset_z}" rpy="0 0 0"/>
   		</xacro:sensor_orbbec_astra>
+
+		<!--xacro:egh_gripper prefix="$(arg prefix)gripper" parent="$(arg prefix)arm_tool0">
+  			<origin xyz="0.0 0.0 0.0" rpy="0 -1.57 0"/>
+  		</xacro:egh_gripper-->
 
 		<!--xacro:sensor_zed prefix="$(arg prefix)front_rgbd_camera" parent="$(arg prefix)base_link" prefix_topic="front_rgbd_camera">
   			<origin xyz="${front_rgbd_camera_offset_x} ${front_rgbd_camera_offset_y} ${front_rgbd_camera_offset_z}" rpy="0 0 0"/>
