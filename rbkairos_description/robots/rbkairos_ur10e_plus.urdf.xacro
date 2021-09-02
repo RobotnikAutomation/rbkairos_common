@@ -8,7 +8,7 @@
   	<!-- First we import all posible elements defined in the urdf.xacro files. All these elements are defined as macro:xacros -->
 
   	<!-- Import summit XL base elements -->
-  	<xacro:include filename="$(find summit_xl_description)/urdf/bases/summit_xls_base.urdf.xacro" />
+  	<xacro:include filename="$(find summit_xl_description)/urdf/bases/summit_xlsk_base_plus.urdf.xacro" />
 
     <!-- Include UR-10 ARM -->
 	<xacro:include filename="$(find ur_description)/urdf/inc/ur10e_macro.xacro" />
@@ -65,7 +65,7 @@
 
     <xacro:property name="arm_position_x" value="0.0"/>
     <xacro:property name="arm_position_y" value="0"/>
-    <xacro:property name="arm_position_z" value="0.383612"/>
+    <xacro:property name="arm_position_z" value="0.56162"/>
     <xacro:property name="arm_orientation_r" value="0"/>
     <xacro:property name="arm_orientation_p" value="0"/>
     <xacro:property name="arm_orientation_y" value="0"/>
@@ -97,15 +97,15 @@
   			<origin xyz="-${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
   		</xacro:omni_wheel>
 
-        <!-- UR-10 ARM -->
-        <xacro:ur10e_robot prefix="$(arg prefix)arm_">
-        </xacro:ur10e_robot>
-
-        <joint name="$(arg prefix)arm_base_joint" type="fixed">
-            <origin xyz="${arm_position_x} ${arm_position_y} ${arm_position_z}" rpy="${arm_orientation_r} ${arm_orientation_p} ${arm_orientation_y}"/>
-            <parent link="$(arg prefix)base_link" />
-            <child link="$(arg prefix)arm_base_link" />
-        </joint>
+        <!-- UR-10e ARM -->
+            <xacro:ur10e_robot prefix="$(arg prefix)arm_">
+            </xacro:ur10e_robot>
+        
+            <joint name="$(arg prefix)arm_base_joint" type="fixed">
+                <origin xyz="${arm_position_x} ${arm_position_y} ${arm_position_z}" rpy="${arm_orientation_r} ${arm_orientation_p} ${arm_orientation_y}"/>
+                <parent link="$(arg prefix)base_link" />
+                <child link="$(arg prefix)arm_base_link" />
+            </joint>
 
         <!-- IMU -->
   		<xacro:sensor_imu_hector prefix="$(arg prefix)imu" parent="$(arg prefix)base_link">
