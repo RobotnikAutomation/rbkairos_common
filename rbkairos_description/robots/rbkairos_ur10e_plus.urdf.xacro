@@ -24,17 +24,17 @@
   	<xacro:property name="PI" value="3.1415926535897931"/>
 
   	<!-- Wheel parameters -->
-  	<xacro:property name="wheel_offset_x" value="0.2225" />    <!-- x,y,z in translation from base_link to the center of the wheel -->
-  	<xacro:property name="wheel_offset_y" value="0.2045" />
+  	<xacro:property name="wheel_offset_x" value="0.21528" />    <!-- x,y,z in translation from base_link to the center of the wheel -->
+  	<xacro:property name="wheel_offset_y" value="0.2690" />
   	<xacro:property name="wheel_offset_z" value="0.0" />
 
-  	<xacro:property name="front_laser_offset_x" value="0.2865"/>
-  	<xacro:property name="front_laser_offset_y" value="-0.20894"/>
-  	<xacro:property name="front_laser_offset_z" value="0.2973"/>
+	<xacro:property name="front_laser_offset_x" value="0.42109"/>
+  	<xacro:property name="front_laser_offset_y" value="-0.32737"/>
+  	<xacro:property name="front_laser_offset_z" value="0.16037"/>
 
-  	<xacro:property name="rear_laser_offset_x" value="-0.2865"/>
-  	<xacro:property name="rear_laser_offset_y" value="0.20894"/>
-  	<xacro:property name="rear_laser_offset_z" value="0.2973"/>
+  	<xacro:property name="rear_laser_offset_x" value="-0.42109"/>
+  	<xacro:property name="rear_laser_offset_y" value="0.32737"/>
+  	<xacro:property name="rear_laser_offset_z" value="0.16037"/>
 
   	<xacro:property name="front_ptz_camera_offset_x" value="0.308"/>
   	<xacro:property name="front_ptz_camera_offset_y" value="0.141"/>
@@ -79,7 +79,7 @@
   		<!-- Here we create the robot elements using the xacro:macros imported at the beggining of this file -->
 
   		<!-- Summit XL base -->
-  		<xacro:summit_xls_base prefix="$(arg prefix)" publish_bf="true" hq="${hq}" />
+  		<xacro:summit_xls_base prefix="$(arg prefix)" publish_bf="true" hq="${hq}" laser_support="true" />
 
   		<xacro:omni_wheel prefix="$(arg prefix)front_right" parent="$(arg prefix)base_link" reflect="false" hq="${hq}">
   			<origin xyz="${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
