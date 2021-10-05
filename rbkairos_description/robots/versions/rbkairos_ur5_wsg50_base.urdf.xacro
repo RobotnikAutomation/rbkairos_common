@@ -101,9 +101,9 @@
   		</xacro:sensor_sick_s300>
 
 
-  		<xacro:sensor_zed prefix="$(arg prefix)front_rgbd_camera" parent="$(arg prefix)base_link" prefix_topic="front_rgbd_camera">
+  		<!--xacro:sensor_zed prefix="$(arg prefix)front_rgbd_camera" parent="$(arg prefix)base_link" prefix_topic="front_rgbd_camera">
   			<origin xyz="${front_rgbd_camera_offset_x} ${front_rgbd_camera_offset_y} ${front_rgbd_camera_offset_z}" rpy="0 0 0"/>
-  		</xacro:sensor_zed>
+  		</xacro:sensor_zed-->
 
 
 
