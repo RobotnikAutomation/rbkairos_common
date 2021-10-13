@@ -25,6 +25,7 @@
   <xacro:arg name="ros_planar_move_plugin" default="false"/>
   <xacro:arg name="has_arm" default="true"/>
   <xacro:arg name="load_kinematics_file" default="false"/> <!-- Necesarry for ur_description compatible with official ur drivers--> 
+  <xacro:arg name="use_gpu_for_simulation" default="false"/>
 
   <xacro:property name="arm_position_x" value="0.0"/>
   <xacro:property name="arm_position_y" value="0"/>
@@ -33,7 +34,7 @@
   <xacro:property name="arm_orientation_p" value="0"/>
   <xacro:property name="arm_orientation_y" value="0"/>
 
-  <xacro:macro name="rbkairos_ur10_wsg50" params="prefix publish_bf hq load_kinematics_file">
+  <xacro:macro name="rbkairos_ur10_wsg50" params="prefix publish_bf hq load_kinematics_file gpu:=false">
 
   <!-- *************** -->
   <!-- Robots Elements -->
@@ -42,7 +43,7 @@
   <!-- Here we create the robot elements using the xacro:macros imported at the beggining of this file -->
 
   <!-- RBKAIROS base -->
-  <xacro:rbkairos_base prefix="$(arg prefix)" publish_bf="true" hq="true"/>
+  <xacro:rbkairos_base prefix="$(arg prefix)" publish_bf="true" hq="true" gpu="${gpu}"/>
 
     <!-- UR-10 ARM -->
     <xacro:ur10_robot prefix="$(arg prefix)arm_" >
@@ -67,6 +68,6 @@
     </xacro:if>
   </xacro:macro>
 
-  <xacro:rbkairos_ur10_wsg50 prefix="$(arg prefix)" publish_bf="true" hq="true" load_kinematics_file="$(arg load_kinematics_file)"/>
+  <xacro:rbkairos_ur10_wsg50 prefix="$(arg prefix)" publish_bf="true" hq="true" load_kinematics_file="$(arg load_kinematics_file)" gpu="$(arg use_gpu_for_simulation)"/>
 
 </robot>
