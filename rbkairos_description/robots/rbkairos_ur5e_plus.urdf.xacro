@@ -68,7 +68,7 @@
 
   <xacro:property name="arm_position_x" value="0.15887"/>
   <xacro:property name="arm_position_y" value="0"/>
-  <xacro:property name="arm_position_z" value="0.56162"/>
+  <xacro:property name="arm_position_z" value="0.56362"/>
   <xacro:property name="arm_orientation_r" value="0"/>
   <xacro:property name="arm_orientation_p" value="0"/>
   <xacro:property name="arm_orientation_y" value="0"/>
