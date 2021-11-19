@@ -1,5 +1,6 @@
 controller_list:
   - name: fake_ur5_arm_controller
+    type: $(arg execution_type)
     joints:
       - robot_arm_shoulder_pan_joint
       - robot_arm_shoulder_lift_joint
@@ -8,5 +9,11 @@ controller_list:
       - robot_arm_wrist_2_joint
       - robot_arm_wrist_3_joint
   - name: fake_egh_gripper_controller
+    type: $(arg execution_type)
     joints:
       - robot_egh_gripper_finger_left_joint
+initial:  # Define initial robot poses.
+  - group: ur5_arm
+    pose: home
+  - group: egh_gripper
+    pose: close

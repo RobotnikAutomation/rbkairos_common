@@ -146,8 +146,6 @@ ur5_arm:
     - LazyPRMstar
     - SPARS
     - SPARStwo
-  projection_evaluator: joints(robot_arm_shoulder_pan_joint,robot_arm_shoulder_lift_joint)
-  longest_valid_segment_fraction: 0.005
 egh_gripper:
   default_planner_config: RRTstar
   planner_configs:

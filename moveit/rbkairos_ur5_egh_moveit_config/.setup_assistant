@@ -6,6 +6,6 @@ moveit_setup_assistant_config:
   SRDF:
     relative_path: config/rbkairos.srdf
   CONFIG:
-    author_name: Jose Gómez
-    author_email: jgomez@robotnik.es
-    generated_timestamp: 1580976263
+    author_name: Alejandro Arnal Espinola
+    author_email: aarnal@robotnik.es
+    generated_timestamp: 1637306909
