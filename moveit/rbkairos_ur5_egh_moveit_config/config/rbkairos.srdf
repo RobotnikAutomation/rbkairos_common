@@ -44,6 +44,8 @@
     <passive_joint name="robot_front_left_wheel_joint" />
     <passive_joint name="robot_front_right_wheel_joint" />
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="robot_arm_base_link_inertia" link2="robot_base_link" reason="Never" />
+    <disable_collisions link1="robot_arm_base_link_inertia" link2="robot_base_chapa" reason="Never" />
     <disable_collisions link1="robot_arm_base_link" link2="robot_arm_shoulder_link" reason="Adjacent" />
     <disable_collisions link1="robot_arm_base_link" link2="robot_back_left_wheel_link" reason="Never" />
     <disable_collisions link1="robot_arm_base_link" link2="robot_back_right_wheel_link" reason="Never" />
