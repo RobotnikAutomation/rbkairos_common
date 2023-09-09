@@ -27,5 +27,4 @@
   <run_depend>xacro</run_depend>
   <run_depend>robotnik_sensors</run_depend>
   <run_depend>ur_description</run_depend>
-  <run_depend>egh_gripper_description</run_depend>
 </package>
